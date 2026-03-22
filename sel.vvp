@@ -1,0 +1,82 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01028500 .scope module, "carry_sel_tb" "carry_sel_tb" 2 1;
+ .timescale 0 0;
+v0102E170_0 .var "A", 3 0;
+v0102E220_0 .var "B", 3 0;
+v01060110_0 .var "Cin", 0 0;
+v0105FDF8_0 .net "Cout", 0 0, L_0105FBE8; 1 drivers
+v0105FEA8_0 .net "Sum", 3 0, L_0105FD48; 1 drivers
+S_01028258 .scope module, "uut" "carry_sel" 2 8, 3 1, S_01028500;
+ .timescale 0 0;
+v01029DF0_0 .net "A", 3 0, v0102E170_0; 1 drivers
+v01029E48_0 .net "B", 3 0, v0102E220_0; 1 drivers
+v01029EA0_0 .net "Cin", 0 0, v01060110_0; 1 drivers
+v0102E698_0 .alias "Cout", 0 0, v0105FDF8_0;
+v0102E278_0 .alias "Sum", 3 0, v0105FEA8_0;
+v0102E380_0 .net *"_s10", 0 0, C4<0>; 1 drivers
+v0102E7A0_0 .net *"_s11", 4 0, L_0105FA30; 1 drivers
+v0102E590_0 .net *"_s13", 4 0, C4<00000>; 1 drivers
+v0102E7F8_0 .net *"_s15", 4 0, L_0105FDA0; 1 drivers
+v0102E1C8_0 .net *"_s20", 4 0, L_0105F980; 1 drivers
+v0102E640_0 .net *"_s23", 0 0, C4<0>; 1 drivers
+v0102E6F0_0 .net *"_s24", 4 0, L_0105F928; 1 drivers
+v0102E3D8_0 .net *"_s27", 0 0, C4<0>; 1 drivers
+v0102E328_0 .net *"_s28", 4 0, L_0105FC40; 1 drivers
+v0102E4E0_0 .net *"_s3", 4 0, L_0105FA88; 1 drivers
+v0102E5E8_0 .net *"_s30", 4 0, C4<00001>; 1 drivers
+v0102E2D0_0 .net *"_s32", 4 0, L_0105FB90; 1 drivers
+v0102E748_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v0102E430_0 .net *"_s7", 4 0, L_010601C0; 1 drivers
+v0102E538_0 .net "c0", 0 0, L_0105FF58; 1 drivers
+v0102E488_0 .net "c1", 0 0, L_01060378; 1 drivers
+v0102E850_0 .net "sum0", 3 0, L_0105FF00; 1 drivers
+v0102E118_0 .net "sum1", 3 0, L_01060270; 1 drivers
+L_0105FF58 .part L_0105FDA0, 4, 1;
+L_0105FF00 .part L_0105FDA0, 0, 4;
+L_0105FA88 .concat [ 4 1 0 0], v0102E170_0, C4<0>;
+L_010601C0 .concat [ 4 1 0 0], v0102E220_0, C4<0>;
+L_0105FA30 .arith/sum 5, L_0105FA88, L_010601C0;
+L_0105FDA0 .arith/sum 5, L_0105FA30, C4<00000>;
+L_01060378 .part L_0105FB90, 4, 1;
+L_01060270 .part L_0105FB90, 0, 4;
+L_0105F980 .concat [ 4 1 0 0], v0102E170_0, C4<0>;
+L_0105F928 .concat [ 4 1 0 0], v0102E220_0, C4<0>;
+L_0105FC40 .arith/sum 5, L_0105F980, L_0105F928;
+L_0105FB90 .arith/sum 5, L_0105FC40, C4<00001>;
+L_0105FD48 .functor MUXZ 4, L_0105FF00, L_01060270, v01060110_0, C4<>;
+L_0105FBE8 .functor MUXZ 1, L_0105FF58, L_01060378, v01060110_0, C4<>;
+    .scope S_01028500;
+T_0 ;
+    %vpi_call 2 18 "$dumpfile", "carry_sel.vcd";
+    %vpi_call 2 19 "$dumpvars", 1'sb0, S_01028500;
+    %movi 8, 5, 4;
+    %set/v v0102E170_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v0102E220_0, 8, 4;
+    %set/v v01060110_0, 0, 1;
+    %delay 10, 0;
+    %movi 8, 5, 4;
+    %set/v v0102E170_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v0102E220_0, 8, 4;
+    %set/v v01060110_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0102E170_0, 1, 4;
+    %movi 8, 1, 4;
+    %set/v v0102E220_0, 8, 4;
+    %set/v v01060110_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 29 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "carry_sel_tb.v";
+    "carry_sel.v";
