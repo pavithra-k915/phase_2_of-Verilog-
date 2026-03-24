@@ -1,0 +1,68 @@
+$date
+	Mon Mar 23 18:39:53 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module carry_look_tb $end
+$var wire 1 ! Cout $end
+$var wire 4 " sum [3:0] $end
+$var reg 4 # A [3:0] $end
+$var reg 4 $ B [3:0] $end
+$var reg 1 % Cin $end
+$scope module uut $end
+$var wire 4 & A [3:0] $end
+$var wire 4 ' B [3:0] $end
+$var wire 1 ( C1 $end
+$var wire 1 ) C2 $end
+$var wire 1 * C3 $end
+$var wire 1 + Cin $end
+$var wire 1 ! Cout $end
+$var wire 4 , G [3:0] $end
+$var wire 4 - P [3:0] $end
+$var wire 4 . sum [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1000 .
+b110 -
+b1 ,
+0+
+1*
+1)
+1(
+b101 '
+b11 &
+0%
+b101 $
+b11 #
+b1000 "
+0!
+$end
+#10
+1!
+b0 "
+b0 .
+b1110 -
+b1 $
+b1 '
+b1111 #
+b1111 &
+#20
+1(
+b0 "
+b0 .
+b1111 -
+b0 ,
+1%
+1+
+b101 $
+b101 '
+b1010 #
+b1010 &
+#30

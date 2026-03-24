@@ -1,0 +1,132 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00A8E5F0 .scope module, "tb_skip" "tb_skip" 2 1;
+ .timescale 0 0;
+v00820570_0 .var "A", 3 0;
+v00820620_0 .var "B", 3 0;
+v008205C8_0 .var "Cin", 0 0;
+v00820678_0 .net "Cout", 0 0, L_0084B678; 1 drivers
+v008206D0_0 .net "Sum", 3 0, L_0084AF70; 1 drivers
+S_00A8E920 .scope module, "uut" "carry_skip_adder" 2 8, 3 1, S_00A8E5F0;
+ .timescale 0 0;
+L_00812AD0 .functor XOR 4, v00820570_0, v00820620_0, C4<0000>, C4<0000>;
+L_00A85040 .functor BUFZ 1, v008205C8_0, C4<0>, C4<0>, C4<0>;
+L_00A816A0 .functor AND 1, L_00820830, L_00820938, C4<1>, C4<1>;
+L_00A81780 .functor AND 1, L_00820990, L_00820CA8, C4<1>, C4<1>;
+L_00821228 .functor OR 1, L_00A816A0, L_00A81780, C4<0>, C4<0>;
+L_00821308 .functor AND 1, L_00820F10, L_00820F68, C4<1>, C4<1>;
+L_008213B0 .functor AND 1, L_00820D58, L_00820E08, C4<1>, C4<1>;
+L_008211B8 .functor OR 1, L_00821308, L_008213B0, C4<0>, C4<0>;
+L_00821378 .functor AND 1, L_00820BF8, L_00820E60, C4<1>, C4<1>;
+L_0084AFA8 .functor AND 1, L_00820BA0, L_00820D00, C4<1>, C4<1>;
+L_0084B018 .functor OR 1, L_00821378, L_0084AFA8, C4<0>, C4<0>;
+L_0084B088 .functor AND 1, L_00820DB0, L_00820EB8, C4<1>, C4<1>;
+L_0084ACD0 .functor AND 1, L_00821018, L_0084B518, C4<1>, C4<1>;
+L_0084B050 .functor OR 1, L_0084B088, L_0084ACD0, C4<0>, C4<0>;
+L_0084B0F8 .functor AND 1, L_0084BA40, L_0084BBA0, C4<1>, C4<1>;
+L_0084AE90 .functor AND 1, L_0084B0F8, L_0084B5C8, C4<1>, C4<1>;
+L_0084AD78 .functor AND 1, L_0084AE90, L_0084BD00, C4<1>, C4<1>;
+RS_0082401C .resolv tri, L_008208E0, L_00820728, L_00820C50, L_00820FC0;
+L_0084AF70 .functor XOR 4, L_00812AD0, RS_0082401C, C4<0000>, C4<0000>;
+v00812810_0 .net "A", 3 0, v00820570_0; 1 drivers
+v00812448_0 .net "B", 3 0, v00820620_0; 1 drivers
+v008124A0_0 .net8 "C", 3 0, RS_0082401C; 4 drivers
+v00812290_0 .net "Cin", 0 0, v008205C8_0; 1 drivers
+v00812708_0 .alias "Cout", 0 0, v00820678_0;
+v00812918_0 .net "P", 3 0, L_00812AD0; 1 drivers
+v00812970_0 .alias "Sum", 3 0, v008206D0_0;
+v00812760_0 .net *"_s11", 0 0, L_00820938; 1 drivers
+v008124F8_0 .net *"_s12", 0 0, L_00A816A0; 1 drivers
+v00812658_0 .net *"_s15", 0 0, L_00820990; 1 drivers
+v00812238_0 .net *"_s17", 0 0, L_00820CA8; 1 drivers
+v008127B8_0 .net *"_s18", 0 0, L_00A81780; 1 drivers
+v008122E8_0 .net *"_s20", 0 0, L_00821228; 1 drivers
+v00812398_0 .net *"_s25", 0 0, L_00820F10; 1 drivers
+v00812340_0 .net *"_s27", 0 0, L_00820F68; 1 drivers
+v008123F0_0 .net *"_s28", 0 0, L_00821308; 1 drivers
+v00812550_0 .net *"_s31", 0 0, L_00820D58; 1 drivers
+v008125A8_0 .net *"_s33", 0 0, L_00820E08; 1 drivers
+v008126B0_0 .net *"_s34", 0 0, L_008213B0; 1 drivers
+v00812868_0 .net *"_s36", 0 0, L_008211B8; 1 drivers
+v008128C0_0 .net *"_s41", 0 0, L_00820BF8; 1 drivers
+v00820468_0 .net *"_s43", 0 0, L_00820E60; 1 drivers
+v008203B8_0 .net *"_s44", 0 0, L_00821378; 1 drivers
+v00820AF0_0 .net *"_s47", 0 0, L_00820BA0; 1 drivers
+v008204C0_0 .net *"_s49", 0 0, L_00820D00; 1 drivers
+v00820B48_0 .net *"_s5", 0 0, L_00A85040; 1 drivers
+v00820308_0 .net *"_s50", 0 0, L_0084AFA8; 1 drivers
+v008209E8_0 .net *"_s52", 0 0, L_0084B018; 1 drivers
+v008200F8_0 .net *"_s55", 0 0, L_00820DB0; 1 drivers
+v00820A98_0 .net *"_s57", 0 0, L_00820EB8; 1 drivers
+v00820200_0 .net *"_s58", 0 0, L_0084B088; 1 drivers
+v00820150_0 .net *"_s61", 0 0, L_00821018; 1 drivers
+v00820518_0 .net *"_s63", 0 0, L_0084B518; 1 drivers
+v008202B0_0 .net *"_s64", 0 0, L_0084ACD0; 1 drivers
+v00820888_0 .net *"_s69", 0 0, L_0084BA40; 1 drivers
+v008200A0_0 .net *"_s71", 0 0, L_0084BBA0; 1 drivers
+v00820A40_0 .net *"_s72", 0 0, L_0084B0F8; 1 drivers
+v00820780_0 .net *"_s75", 0 0, L_0084B5C8; 1 drivers
+v008207D8_0 .net *"_s76", 0 0, L_0084AE90; 1 drivers
+v00820410_0 .net *"_s79", 0 0, L_0084BD00; 1 drivers
+v008201A8_0 .net *"_s9", 0 0, L_00820830; 1 drivers
+v00820258_0 .net "block_prop", 0 0, L_0084AD78; 1 drivers
+v00820360_0 .net "ripple_cout", 0 0, L_0084B050; 1 drivers
+L_008208E0 .part/pv L_00A85040, 0, 1, 4;
+L_00820728 .part/pv L_00821228, 1, 1, 4;
+L_00820830 .part v00820570_0, 0, 1;
+L_00820938 .part v00820620_0, 0, 1;
+L_00820990 .part L_00812AD0, 0, 1;
+L_00820CA8 .part RS_0082401C, 0, 1;
+L_00820C50 .part/pv L_008211B8, 2, 1, 4;
+L_00820F10 .part v00820570_0, 1, 1;
+L_00820F68 .part v00820620_0, 1, 1;
+L_00820D58 .part L_00812AD0, 1, 1;
+L_00820E08 .part RS_0082401C, 1, 1;
+L_00820FC0 .part/pv L_0084B018, 3, 1, 4;
+L_00820BF8 .part v00820570_0, 2, 1;
+L_00820E60 .part v00820620_0, 2, 1;
+L_00820BA0 .part L_00812AD0, 2, 1;
+L_00820D00 .part RS_0082401C, 2, 1;
+L_00820DB0 .part v00820570_0, 3, 1;
+L_00820EB8 .part v00820620_0, 3, 1;
+L_00821018 .part L_00812AD0, 3, 1;
+L_0084B518 .part RS_0082401C, 3, 1;
+L_0084BA40 .part L_00812AD0, 0, 1;
+L_0084BBA0 .part L_00812AD0, 1, 1;
+L_0084B5C8 .part L_00812AD0, 2, 1;
+L_0084BD00 .part L_00812AD0, 3, 1;
+L_0084B678 .functor MUXZ 1, L_0084B050, v008205C8_0, L_0084AD78, C4<>;
+    .scope S_00A8E5F0;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "skip.vcd";
+    %vpi_call 2 13 "$dumpvars", 1'sb0, S_00A8E5F0;
+    %movi 8, 3, 4;
+    %set/v v00820570_0, 8, 4;
+    %movi 8, 5, 4;
+    %set/v v00820620_0, 8, 4;
+    %set/v v008205C8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v00820570_0, 1, 4;
+    %movi 8, 1, 4;
+    %set/v v00820620_0, 8, 4;
+    %set/v v008205C8_0, 0, 1;
+    %delay 10, 0;
+    %movi 8, 10, 4;
+    %set/v v00820570_0, 8, 4;
+    %movi 8, 5, 4;
+    %set/v v00820620_0, 8, 4;
+    %set/v v008205C8_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 24 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_skip.v";
+    "carry_skip_adder.v";

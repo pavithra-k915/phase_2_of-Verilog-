@@ -1,0 +1,72 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_007F8A18 .scope module, "tb_carry_save_adder" "tb_carry_save_adder" 2 3;
+ .timescale -9 -12;
+v00FA5328_0 .var "A", 3 0;
+v00FA4DA8_0 .var "B", 3 0;
+v00FA4C48_0 .var "C", 3 0;
+v00FA5380_0 .net "Carry", 3 0, L_007FEDF8; 1 drivers
+v00FA4F60_0 .net "Sum", 3 0, L_007FE898; 1 drivers
+S_007F8908 .scope module, "uut" "carry_save_adder" 2 12, 3 1, S_007F8A18;
+ .timescale 0 0;
+L_007F17A8 .functor XOR 4, v00FA5328_0, v00FA4DA8_0, C4<0000>, C4<0000>;
+L_007FE898 .functor XOR 4, L_007F17A8, v00FA4C48_0, C4<0000>, C4<0000>;
+L_007FE978 .functor AND 4, v00FA5328_0, v00FA4DA8_0, C4<1111>, C4<1111>;
+L_007FE9B0 .functor AND 4, v00FA4DA8_0, v00FA4C48_0, C4<1111>, C4<1111>;
+L_007FE860 .functor OR 4, L_007FE978, L_007FE9B0, C4<0000>, C4<0000>;
+L_007FED18 .functor AND 4, v00FA5328_0, v00FA4C48_0, C4<1111>, C4<1111>;
+L_007FEDF8 .functor OR 4, L_007FE860, L_007FED18, C4<0000>, C4<0000>;
+v00F83668_0 .net "A", 3 0, v00FA5328_0; 1 drivers
+v007F4010_0 .net "B", 3 0, v00FA4DA8_0; 1 drivers
+v007F4068_0 .net "C", 3 0, v00FA4C48_0; 1 drivers
+v007F40C0_0 .alias "Carry", 3 0, v00FA5380_0;
+v007F16A0_0 .alias "Sum", 3 0, v00FA4F60_0;
+v007F16F8_0 .net *"_s0", 3 0, L_007F17A8; 1 drivers
+v007F1750_0 .net *"_s10", 3 0, L_007FED18; 1 drivers
+v007FE7B0_0 .net *"_s4", 3 0, L_007FE978; 1 drivers
+v007FE808_0 .net *"_s6", 3 0, L_007FE9B0; 1 drivers
+v00FA52D0_0 .net *"_s8", 3 0, L_007FE860; 1 drivers
+    .scope S_007F8A18;
+T_0 ;
+    %vpi_call 2 22 "$dumpfile", "csa.vcd";
+    %vpi_call 2 23 "$dumpvars", 1'sb0, S_007F8A18;
+    %movi 8, 1, 4;
+    %set/v v00FA5328_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v00FA4DA8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v00FA4C48_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 5, 4;
+    %set/v v00FA5328_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v00FA4DA8_0, 8, 4;
+    %movi 8, 1, 4;
+    %set/v v00FA4C48_0, 8, 4;
+    %delay 10000, 0;
+    %set/v v00FA5328_0, 1, 4;
+    %movi 8, 1, 4;
+    %set/v v00FA4DA8_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v00FA4C48_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 10, 4;
+    %set/v v00FA5328_0, 8, 4;
+    %movi 8, 5, 4;
+    %set/v v00FA4DA8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v00FA4C48_0, 8, 4;
+    %delay 10000, 0;
+    %vpi_call 2 37 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_carry_save_adder.v";
+    "carry_save_adder.v";
